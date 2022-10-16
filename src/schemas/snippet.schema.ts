@@ -8,8 +8,28 @@ const snippetSchema = new mongoose.Schema<ISnippet>({
     trim: true,
     required: true,
   },
+  owner: {
+    type: mongoose.Types.ObjectId,
+    ref: "User",
+    default: null,
+  },
+  content: {
+    type: String,
+    trim: true,
+    required: true,
+  },
+  hits: {
+    type: Number,
+    default: 0,
+  },
+  syntax: {
+    type: mongoose.Types.ObjectId,
+    ref: "Syntax",
+    default: null,
+  },
   category: {
     type: mongoose.Schema.Types.ObjectId,
+    ref: "Category",
     default: null,
   },
   tags: {
@@ -21,11 +41,6 @@ const snippetSchema = new mongoose.Schema<ISnippet>({
     type: String,
     trim: true,
     default: null,
-  },
-  content: {
-    type: String,
-    trim: true,
-    required: true,
   },
   createdAt: {
     type: Date,
@@ -50,17 +65,6 @@ const snippetSchema = new mongoose.Schema<ISnippet>({
     type: mongoose.Types.ObjectId,
     ref: "Folder",
     default: null,
-  },
-  owner: {
-    type: mongoose.Types.ObjectId,
-    ref: "User",
-    default: null,
-  },
-  syntax: {
-    type: String,
-    trim: true,
-    default: "plaintext",
-    // enum: []
   },
   burnAfterReading: {
     type: Boolean,
