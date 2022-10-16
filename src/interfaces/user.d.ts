@@ -6,6 +6,7 @@ interface IUser extends mongoose.Document {
   avatar: string;
   website: string;
   password: string;
+  snippets: mongoose.Schema.Types.ObjectId[];
   createdAt: Date;
   updatedAt: Date;
   folders: mongoose.Types.ObjectId[];
