@@ -7,7 +7,7 @@ const folderSchema = new mongoose.Schema<IFolder>({
     type: String,
     required: true,
   },
-  user: {
+  owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },
