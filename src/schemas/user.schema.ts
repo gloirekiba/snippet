@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema<IUser>({
     required: true,
     match: [UserValidator.PASSWORD_REGEX, UserValidator.ERR_PASSWORD_INVALID],
   },
+  snippets: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Snippet",
+  },
   createdAt: {
     type: Date,
     immutable: true,
