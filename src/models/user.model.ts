@@ -9,6 +9,7 @@ interface IUser extends mongoose.Document {
   avatar: string;
   password: string;
   createdAt: Date;
+  updatedAt: Date;
   folders: mongoose.Types.ObjectId[];
   // settings: {
   //   defaultSyntax: string;
@@ -43,6 +44,10 @@ const userSchema = new mongoose.Schema<IUser>({
     match: [UserValidator.PASSWORD_REGEX, UserValidator.ERR_PASSWORD_INVALID],
   },
   createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
     type: Date,
     default: Date.now,
   },
