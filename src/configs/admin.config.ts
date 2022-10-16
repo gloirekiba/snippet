@@ -3,8 +3,10 @@ import { Database, Resource } from "@adminjs/mongoose";
 
 AdminJS.registerAdapter({ Database, Resource });
 
+import User from "../models/user.model";
+
 const adminConfig = new AdminJS({
-  databases: [],
+  resources: [User],
   rootPath: "/admin",
 });
 
