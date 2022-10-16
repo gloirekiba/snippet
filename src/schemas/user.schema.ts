@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
-import { DEFAULT_AVATAR } from "../configs/default";
+import { DEFAULT_AVATAR } from "../configs/default.config";
 import IUser from "../interfaces/user";
 import UserValidator from "../helpers/UserValidator";
 
