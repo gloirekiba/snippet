@@ -38,6 +38,7 @@ const userSchema = new mongoose.Schema<IUser>({
   snippets: {
     type: [mongoose.Schema.Types.ObjectId],
     ref: "Snippet",
+    default: [],
   },
   createdAt: {
     type: Date,
