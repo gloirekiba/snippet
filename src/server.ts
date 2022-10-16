@@ -6,7 +6,7 @@ import express, { Application } from "express";
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 import admin from "./configs/admin.config";
-import connectDB from "./db/connectDB";
+import connectDB from "./configs/db.config";
 
 import adminRouter from "./routes/admin.route";
 import userRouter from "./routes/user.route";
