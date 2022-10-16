@@ -1,5 +1,5 @@
 {
-  "name": "pastebin",
+  "name": "snippet",
   "version": "1.0.0",
   "description": "",
   "main": "src/server.js",
