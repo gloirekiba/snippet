@@ -1,21 +1,19 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
+import { DEFAULT_AVATAR } from "../configs/default";
+
 import UserValidator from "../helpers/UserValidator";
 
 interface IUser extends mongoose.Document {
   name: string;
   email: string;
   avatar: string;
+  website: string;
   password: string;
   createdAt: Date;
   updatedAt: Date;
   folders: mongoose.Types.ObjectId[];
-  // settings: {
-  //   defaultSyntax: string;
-  //   defaultExpiration: string;
-  //   defaultTheme: string;
-  // };
 }
 
 const userSchema = new mongoose.Schema<IUser>({
@@ -35,7 +33,12 @@ const userSchema = new mongoose.Schema<IUser>({
   },
   avatar: {
     type: String,
-    default: "default.png",
+    default: DEFAULT_AVATAR,
+  },
+  website: {
+    type: String,
+    trim: true,
+    match: [UserValidator.WEBSITE_REGEX, UserValidator.ERR_WEBSITE_INVALID],
   },
   password: {
     type: String,
@@ -45,6 +48,7 @@ const userSchema = new mongoose.Schema<IUser>({
   },
   createdAt: {
     type: Date,
+    immutable: true,
     default: Date.now,
   },
   updatedAt: {
