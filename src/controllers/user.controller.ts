@@ -7,11 +7,11 @@ export const createUser = async (req: Request, res: Response) => {
 
   try {
     const user = await User.create({ name, email, password });
-    res.status(201).json({ user: user.toJSON(), message: "User created successfully" });
+    res
+      .status(201)
+      .json({ user: user.toJSON(), message: "User created successfully" });
   } catch (error: any) {
     console.log(error);
     res.status(500).json({ message: error.message || "Something went wrong" });
   }
-
 };
-
