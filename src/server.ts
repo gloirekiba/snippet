@@ -1,12 +1,12 @@
 import path from "path";
 import dotenv from "dotenv";
+import morgan from "morgan";
 import express, { Application } from "express";
 
 dotenv.config({ path: path.join(__dirname, "../.env") });
 
 import connectDB from "./db/connectDB";
 import userRouter from "./routes/user.route";
-import morgan from "morgan";
 
 const app: Application = express();
 
