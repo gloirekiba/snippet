@@ -1,7 +1,7 @@
 import AdminJS from "adminjs";
 import { Database, Resource } from "@adminjs/mongoose";
 
-import userResource from "../ressources/user.resource";
+import userResource from "../resources/user.resource";
 
 AdminJS.registerAdapter({ Database, Resource });
 
