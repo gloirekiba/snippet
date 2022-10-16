@@ -5,6 +5,7 @@ import categoryResource from "../resources/category.resource";
 import commentResource from "../resources/comment.resource";
 import folderResource from "../resources/folder.resource";
 import snippetResource from "../resources/snippet.resource";
+import syntaxResource from "../resources/syntax.resource";
 import userResource from "../resources/user.resource";
 
 AdminJS.registerAdapter({ Database, Resource });
@@ -15,6 +16,7 @@ const admin = new AdminJS({
     commentResource,
     folderResource,
     snippetResource,
+    syntaxResource,
     userResource,
   ],
   rootPath: "/admin",
