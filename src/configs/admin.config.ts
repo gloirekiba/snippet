@@ -1,12 +1,12 @@
 import AdminJS from "adminjs";
 import { Database, Resource } from "@adminjs/mongoose";
 
+import userResource from "../ressources/user.resource";
+
 AdminJS.registerAdapter({ Database, Resource });
 
-import User from "../models/user.model";
-
 const adminConfig = new AdminJS({
-  resources: [User],
+  resources: [userResource],
   rootPath: "/admin",
 });
 
