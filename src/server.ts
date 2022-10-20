@@ -18,6 +18,7 @@ const start = async () => {
 
   app.use(morgan("dev"));
   app.use(express.json());
+  app.use(express.static("client/build"));
   app.use(express.urlencoded({ extended: false }));
 
   app.use(admin.options.rootPath, adminRouter);
