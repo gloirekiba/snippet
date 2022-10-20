@@ -1,5 +1,6 @@
-import admin from "../configs/admin.config";
 import AdminJSExpress from "@adminjs/express";
+
+import admin from "../configs/admin.config";
 
 const adminRouter = AdminJSExpress.buildRouter(admin);
 
