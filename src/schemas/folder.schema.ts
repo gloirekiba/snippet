@@ -5,6 +5,7 @@ import IFolder from "../interfaces/folder";
 const folderSchema = new mongoose.Schema<IFolder>({
   name: {
     type: String,
+    trim: true,
     required: true,
   },
   owner: {
@@ -13,6 +14,7 @@ const folderSchema = new mongoose.Schema<IFolder>({
   },
   createdAt: {
     type: Date,
+    immutable: true,
     default: Date.now,
   },
   updatedAt: {
