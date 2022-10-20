@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema<IUser>({
     required: [true, UserValidator.EMAIL_REQUIRED],
     match: [UserValidator.EMAIL_REGEX, UserValidator.ERR_EMAIL_INVALID],
   },
+  password: {
+    type: String,
+    trim: true,
+    required: true,
+    match: [UserValidator.PASSWORD_REGEX, UserValidator.ERR_PASSWORD_INVALID],
+  },
   avatar: {
     type: String,
     default: DEFAULT_AVATAR,
@@ -29,11 +35,9 @@ const userSchema = new mongoose.Schema<IUser>({
     trim: true,
     match: [UserValidator.WEBSITE_REGEX, UserValidator.ERR_WEBSITE_INVALID],
   },
-  password: {
+  location: {
     type: String,
     trim: true,
-    required: true,
-    match: [UserValidator.PASSWORD_REGEX, UserValidator.ERR_PASSWORD_INVALID],
   },
   snippets: {
     type: [mongoose.Schema.Types.ObjectId],
@@ -59,6 +63,8 @@ userSchema.pre("save", async function (next) {
   const user = this;
   if (user.isModified("password"))
     user.password = await bcrypt.hash(user.password, 10);
+
+  user.updatedAt = new Date();
 
   next();
 });
